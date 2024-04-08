@@ -7,7 +7,7 @@
 		"packages/*"
 	],
 	"engines": {
-		"node": "18.x.x",
+		"node": "20.x.x",
 		"npm": ">=9.x.x"
 	},
 	"scripts": {
