@@ -54,6 +54,7 @@
 		"@types/node-cron": "3.0.11",
 		"@types/swagger-jsdoc": "6.0.4",
 		"ts-paths-esm-loader": "1.4.3",
+		"tsc-alias": "1.8.8",
 		"tsx": "4.7.0"
 	}
 }
