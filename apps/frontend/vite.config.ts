@@ -105,6 +105,7 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 			],
 		},
 		server: {
+			host:true,
 			port: Number(VITE_APP_DEVELOPMENT_PORT),
 			proxy: {
 				[VITE_APP_API_ORIGIN_URL as string]: {
