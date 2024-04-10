@@ -126,11 +126,7 @@ class BaseHTTPApi implements HTTPApi {
 		const { contentType, hasAuth, method, payload = null, query } = options;
 
 		const headers = await this.getHeaders(contentType, hasAuth);
-		console.log(this.getUrl(path, query), {
-			headers,
-			method,
-			payload,
-		});
+
 		const response = await this.http.load(this.getUrl(path, query), {
 			headers,
 			method,
