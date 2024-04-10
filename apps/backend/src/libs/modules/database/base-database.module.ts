@@ -26,7 +26,7 @@ class BaseDatabase implements Database {
 		const sslConfig =
 			this.appConfig.ENV.APP.ENVIRONMENT === AppEnvironment.LOCAL
 				? { ssl: { rejectUnauthorized: false } }
-				: { ssl: { rejectUnauthorized: false } };
+				: { ssl: { rejectUnauthorized: true } };
 
 		return {
 			client: this.appConfig.ENV.DB.DIALECT,
