@@ -88,7 +88,7 @@ class BaseServerApplication implements ServerApplication {
 
 		this.app.register(fastifyCors, {
 			origin: "*",
-			methods: ["GET", "POST", "PUT", "DELETE"],
+			methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 		});
 	}
 
