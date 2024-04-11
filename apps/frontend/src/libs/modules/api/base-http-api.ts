@@ -127,14 +127,11 @@ class BaseHTTPApi implements HTTPApi {
 
 		const headers = await this.getHeaders(contentType, hasAuth);
 
-		const response = await this.http.load(
-			"https://trackmates-1.onrender.com/api/v1/auth/sign-in",
-			{
-				headers,
-				method,
-				payload,
-			},
-		);
+		const response = await this.http.load(this.getUrl(path, query), {
+			headers,
+			method,
+			payload,
+		});
 
 		return (await this.checkResponse(response)) as HTTPApiResponse;
 	}
