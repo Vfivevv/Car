@@ -2,6 +2,7 @@ import fastifyStatic from "@fastify/static";
 import swagger, { type StaticDocumentSpec } from "@fastify/swagger";
 import swaggerUi from "@fastify/swagger-ui";
 import Fastify, { type FastifyError, type RouteOptions } from "fastify";
+import fastifyCors from "fastify-cors";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -83,6 +84,11 @@ class BaseServerApplication implements ServerApplication {
 
 		this.app = Fastify({
 			ignoreTrailingSlash: true,
+		});
+
+		this.app.register(fastifyCors, {
+			origin: "*",
+			methods: ["GET", "POST", "PUT", "DELETE"],
 		});
 	}
 
