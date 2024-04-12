@@ -10,7 +10,6 @@ const handleError: Middleware = () => {
 			if (isRejected(action)) {
 				const errorMessage =
 					action.error.message ?? ExceptionMessage.UNKNOWN_ERROR;
-				console.log(action)
 				notification.error(
 					errorMessage.length > EMPTY_LENGTH
 						? errorMessage
