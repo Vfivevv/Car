@@ -1,5 +1,5 @@
 {
-	"name": "@trackmates/frontend",
+	"name": "@car/frontend",
 	"private": true,
 	"version": "1.68.3",
 	"type": "module",
@@ -21,7 +21,7 @@
 		"@reduxjs/toolkit": "2.0.1",
 		"@stripe/react-stripe-js": "2.6.0",
 		"@stripe/stripe-js": "3.0.8",
-		"@trackmates/shared": "*",
+		"@car/shared": "*",
 		"clsx": "2.1.0",
 		"react": "18.2.0",
 		"react-dom": "18.2.0",

@@ -2,4 +2,4 @@ export {
 	userProfileValidationSchema,
 	userSignInValidationSchema,
 	userSignUpValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

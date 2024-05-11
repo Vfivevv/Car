@@ -1,1 +1,1 @@
-export { NotificationError } from "@trackmates/shared";
+export { NotificationError } from "@car/shared";

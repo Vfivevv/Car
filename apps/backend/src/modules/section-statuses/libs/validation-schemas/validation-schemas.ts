@@ -3,4 +3,4 @@ export {
 	sectionStatusGetAllQueryValidationSchema,
 	sectionStatusUpdateBodyValidationSchema,
 	sectionStatusUpdateQueryValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

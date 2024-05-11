@@ -1,4 +1,4 @@
-# TrackMates
+# car
 
 Track your progress for all your courses
 
@@ -9,7 +9,7 @@ Track your progress for all your courses
 - Pay attention, that we have certain [quality criteria](https://github.com/BinaryStudioAcademy/quality-criteria/blob/production/src/javascript.md), which we should follow during application development.
 
 Deployed application:
-[TrackMates](https://trackmates.net/)
+[car](https://car.net/)
 
 #### Documentation:
 

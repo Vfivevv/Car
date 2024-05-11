@@ -3,4 +3,4 @@ export {
 	chatMessageIdParameterValidationSchema,
 	chatMessageUpdateValidationSchema,
 	readChatMessagesRequestValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

@@ -8,4 +8,4 @@ export {
 	VendorErrorMessage,
 	VendorKey,
 	VendorsApiPath,
-} from "@trackmates/shared";
+} from "@car/shared";

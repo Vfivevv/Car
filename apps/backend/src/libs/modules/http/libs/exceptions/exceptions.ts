@@ -1,1 +1,1 @@
-export { HTTPError } from "@trackmates/shared";
+export { HTTPError } from "@car/shared";

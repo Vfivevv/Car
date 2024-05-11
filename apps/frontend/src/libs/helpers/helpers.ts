@@ -15,4 +15,4 @@ export {
 	getSanitizedHtml,
 	getTimeDistanceFormatDate,
 	initDebounce,
-} from "@trackmates/shared";
+} from "@car/shared";

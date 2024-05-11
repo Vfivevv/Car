@@ -2,4 +2,4 @@ export {
 	NotificationFilter,
 	NotificationStatus,
 	NotificationType,
-} from "@trackmates/shared";
+} from "@car/shared";

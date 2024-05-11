@@ -4,4 +4,4 @@ export {
 	FriendErrorMessage,
 	FriendsApiPath,
 	HTTPCode,
-} from "@trackmates/shared";
+} from "@car/shared";

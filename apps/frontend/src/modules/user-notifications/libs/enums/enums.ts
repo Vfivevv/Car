@@ -1,1 +1,1 @@
-export { UserNotificationsApiPath } from "@trackmates/shared";
+export { UserNotificationsApiPath } from "@car/shared";

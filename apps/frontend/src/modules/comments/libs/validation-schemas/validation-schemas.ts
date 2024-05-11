@@ -1,1 +1,1 @@
-export { commentTextValidationSchema } from "@trackmates/shared";
+export { commentTextValidationSchema } from "@car/shared";

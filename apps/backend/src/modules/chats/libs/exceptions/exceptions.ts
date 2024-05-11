@@ -1,1 +1,1 @@
-export { ChatError } from "@trackmates/shared";
+export { ChatError } from "@car/shared";

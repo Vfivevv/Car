@@ -1,4 +1,4 @@
 export {
 	type CommonCoursesResponseDto,
 	type UserCourseResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

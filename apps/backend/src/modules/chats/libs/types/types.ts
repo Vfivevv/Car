@@ -3,4 +3,4 @@ export {
 	type ChatGetAllItemResponseDto,
 	type ChatItemResponseDto,
 	type ChatResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

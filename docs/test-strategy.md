@@ -1,8 +1,8 @@
-# BSWA 2023-2024 – [TrackMates](https://trackmates.net/) – Test Strategy
+# BSWA 2023-2024 – [car](https://car.net/) – Test Strategy
 
 ## 1. Introduction
 
-The purpose of the test strategy for the **“TrackMates”** web and Progressive Web App (PWA) is to:
+The purpose of the test strategy for the **“car”** web and Progressive Web App (PWA) is to:
 
 - Provide a central artifact to govern the strategic approach of the test effort; it defines the general approach to be employed when testing the software and when evaluating the results of that testing. Planning artifacts will refer to the test strategy regarding the governing of detailed testing work.
 - Provide visible confirmation to test-effort stakeholders that adequate consideration has been given to governing the test effort and, where appropriate, to have those stakeholders approve the strategy.
@@ -43,9 +43,9 @@ Scrum model is used for SDLC.
 
 ### Documents
 
-[Design (Desktop)](https://www.figma.com/file/P8QzgCZEaN0UU9QpjdggRW/BSA_TrackMates?type=design&node-id=0%3A1&mode=design&t=isWb7Jwsid5AxTL1-1)
+[Design (Desktop)](https://www.figma.com/file/P8QzgCZEaN0UU9QpjdggRW/BSA_car?type=design&node-id=0%3A1&mode=design&t=isWb7Jwsid5AxTL1-1)
 
-[Design (Mobile)](https://www.figma.com/file/JJjwl3joVKOwS0tzzYs8Vz/TrackMates?type=design&node-id=0%3A1&mode=design&t=ZuqmB1birN3911IH-1)
+[Design (Mobile)](https://www.figma.com/file/JJjwl3joVKOwS0tzzYs8Vz/car?type=design&node-id=0%3A1&mode=design&t=ZuqmB1birN3911IH-1)
 
 [Specification](https://docs.google.com/document/d/1Vum3p6bc_2BQ_t3YaJbaH1We7UoZx7Hztgm0kTCeEe4/edit?usp=sharing)
 
@@ -123,7 +123,7 @@ The following types of testing will be used:
 
 ### Using templates
 
-[Bug Report Template](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-trackmates/issues/new?assignees=&labels=bug&projects=&template=bug-report.yml&title=fix%3A):
+[Bug Report Template](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-car/issues/new?assignees=&labels=bug&projects=&template=bug-report.yml&title=fix%3A):
 
 1. Title
 2. Description
@@ -134,7 +134,7 @@ The following types of testing will be used:
 7. Environment
 8. Severity
 
-[Feature Request Template](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-trackmates/issues/new?assignees=&labels=feature+request&projects=&template=feature-request.yml&title=feat%3A):
+[Feature Request Template](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-car/issues/new?assignees=&labels=feature+request&projects=&template=feature-request.yml&title=feat%3A):
 
 1. Title
 2. Description
@@ -174,8 +174,8 @@ The following types of testing will be used:
     - Safari Responsive Design Mode
 
 - **Environments defined for the project:**
-  - [Local environment](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-trackmates)
-  - [Test environment](https://trackmates.net/)
+  - [Local environment](https://github.com/BinaryStudioAcademy/bsa-winter-2023-2024-car)
+  - [Test environment](https://car.net/)
 
 ## 4. Testing Tools and Artifacts
 

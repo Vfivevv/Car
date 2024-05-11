@@ -1,1 +1,1 @@
-export { type ValueOf } from "@trackmates/shared";
+export { type ValueOf } from "@car/shared";

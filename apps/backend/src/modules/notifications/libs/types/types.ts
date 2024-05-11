@@ -4,4 +4,4 @@ export {
 	type NotificationResponseDto,
 	type ReadNotificationsResponseDto,
 	type UpdateNotificationRequestDto,
-} from "@trackmates/shared";
+} from "@car/shared";

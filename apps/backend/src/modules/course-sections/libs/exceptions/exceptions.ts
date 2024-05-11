@@ -1,1 +1,1 @@
-export { CourseSectionError } from "@trackmates/shared";
+export { CourseSectionError } from "@car/shared";

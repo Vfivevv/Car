@@ -1,1 +1,1 @@
-export { SectionStatus, SectionStatusesApiPath } from "@trackmates/shared";
+export { SectionStatus, SectionStatusesApiPath } from "@car/shared";

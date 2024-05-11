@@ -2,7 +2,7 @@ name: Continuous Delivery
 
 env:
   AWS_REGION: eu-central-1
-  EBS_APPLICATION_NAME: trackmates
+  EBS_APPLICATION_NAME: car
   EBS_ENVIRONMENT_NAME: development
 
 on:
@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: development
-      url: https://trackmates.net/
+      url: https://car.net/
 
     steps:
       - name: Code Checkout

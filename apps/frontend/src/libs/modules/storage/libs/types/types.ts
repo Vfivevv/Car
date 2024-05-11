@@ -1,1 +1,1 @@
-export { type Storage } from "@trackmates/shared";
+export { type Storage } from "@car/shared";

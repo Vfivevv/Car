@@ -1,1 +1,1 @@
-export { notificationFilterToType } from "@trackmates/shared";
+export { notificationFilterToType } from "@car/shared";

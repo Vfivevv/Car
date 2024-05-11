@@ -4,4 +4,4 @@ export {
 	type ChatItemResponseDto,
 	type ChatSearchResponseDto,
 	type ReadChatMessagesResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

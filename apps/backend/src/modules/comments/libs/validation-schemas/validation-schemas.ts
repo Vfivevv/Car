@@ -3,4 +3,4 @@ export {
 	commentGetAllQueryValidationSchema,
 	commentIdParameterValidationSchema,
 	commentTextValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

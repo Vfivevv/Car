@@ -10,4 +10,4 @@ export {
 	type ServerValidationErrorResponse,
 	type ValidationSchema,
 	type ValueOf,
-} from "@trackmates/shared";
+} from "@car/shared";

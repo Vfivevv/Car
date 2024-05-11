@@ -1,1 +1,1 @@
-export { CommentError } from "@trackmates/shared";
+export { CommentError } from "@car/shared";

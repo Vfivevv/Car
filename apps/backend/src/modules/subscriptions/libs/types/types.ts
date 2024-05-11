@@ -3,4 +3,4 @@ export {
 	type SubscriptionPaymentIntentCreateRequestDto,
 	type SubscriptionPaymentIntentCreateResponseDto,
 	type SubscriptionResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

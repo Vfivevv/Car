@@ -2,4 +2,4 @@ export {
 	addFriendValidationSchema,
 	friendGetAllQueryValidationSchema,
 	friendIdParameterValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

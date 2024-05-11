@@ -3,4 +3,4 @@ export {
 	type FriendFollowResponseDto,
 	type FriendListRequestQueryDto,
 	type FriendUnfollowRequestDto,
-} from "@trackmates/shared";
+} from "@car/shared";

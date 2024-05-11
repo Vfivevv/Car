@@ -11,4 +11,4 @@ export {
 	PermissionMode,
 	ServerErrorType,
 	SortOrder,
-} from "@trackmates/shared";
+} from "@car/shared";

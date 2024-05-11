@@ -1,1 +1,1 @@
-export { SubscriptionError } from "@trackmates/shared";
+export { SubscriptionError } from "@car/shared";

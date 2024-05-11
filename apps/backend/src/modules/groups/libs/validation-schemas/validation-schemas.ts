@@ -5,4 +5,4 @@ export {
 	groupIdAndUserIdParametersValidationSchema,
 	groupIdParameterValidationSchema,
 	groupRequestBodyValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

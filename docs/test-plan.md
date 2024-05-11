@@ -1,8 +1,8 @@
-# BSWA 2023-2024 – [TrackMates](https://trackmates.net/) – Test Plan
+# BSWA 2023-2024 – [car](https://car.net/) – Test Plan
 
 ## Introduction
 
-The purpose of this test plan is to describe the testing process of the “TrackMates” web and Progressive Web App (PWA). “TrackMates” is an application for habit tracking in online courses, providing users with a platform to manage, track, and share their learning progress.
+The purpose of this test plan is to describe the testing process of the “car” web and Progressive Web App (PWA). “car” is an application for habit tracking in online courses, providing users with a platform to manage, track, and share their learning progress.
 
 ## 1. Feature priorities
 

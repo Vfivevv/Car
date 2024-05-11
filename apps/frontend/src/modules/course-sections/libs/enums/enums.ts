@@ -1,1 +1,1 @@
-export { CourseSectionsApiPath } from "@trackmates/shared";
+export { CourseSectionsApiPath } from "@car/shared";

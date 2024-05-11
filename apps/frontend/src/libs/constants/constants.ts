@@ -6,4 +6,4 @@ export {
 	EMPTY_LENGTH,
 	LAST_ARRAY_ITEM,
 	PREVIOUS_INDEX_OFFSET,
-} from "@trackmates/shared";
+} from "@car/shared";

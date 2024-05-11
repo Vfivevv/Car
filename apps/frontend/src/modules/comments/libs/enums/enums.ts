@@ -1,1 +1,1 @@
-export { CommentsApiPath } from "@trackmates/shared";
+export { CommentsApiPath } from "@car/shared";

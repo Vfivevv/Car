@@ -1,1 +1,1 @@
-export { type ActivityLikeRequestDto } from "@trackmates/shared";
+export { type ActivityLikeRequestDto } from "@car/shared";

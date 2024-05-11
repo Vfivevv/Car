@@ -51,7 +51,7 @@ const serverApplication = new BaseServerApplication({
 	database,
 	logger,
 	services: { socketService, userService },
-	title: "TrackMates",
+	title: "car",
 	token,
 });
 

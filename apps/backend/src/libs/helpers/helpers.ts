@@ -4,4 +4,4 @@ export {
 	getShiftedDate,
 	getSizeInBytes,
 	getValueByPath,
-} from "@trackmates/shared";
+} from "@car/shared";

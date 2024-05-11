@@ -1,4 +1,4 @@
-import { type UserCourseResponseDto } from "@trackmates/shared";
+import { type UserCourseResponseDto } from "@car/shared";
 import { raw } from "objection";
 import { type Page } from "objection";
 

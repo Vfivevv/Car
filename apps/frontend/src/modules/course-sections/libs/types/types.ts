@@ -3,4 +3,4 @@ export {
 	type CourseSectionGetAllRequestDto,
 	type CourseSectionGetAllResponseDto,
 	type CourseSectionWithStatusDto,
-} from "@trackmates/shared";
+} from "@car/shared";

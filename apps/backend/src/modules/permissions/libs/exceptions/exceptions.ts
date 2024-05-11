@@ -1,1 +1,1 @@
-export { PermissionError } from "@trackmates/shared";
+export { PermissionError } from "@car/shared";

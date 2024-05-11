@@ -1,4 +1,4 @@
 export {
 	cancelPaymentIntentValidationSchema,
 	createPaymentIntentValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

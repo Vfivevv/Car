@@ -1,1 +1,1 @@
-export { PermissionsApiPath } from "@trackmates/shared";
+export { PermissionsApiPath } from "@car/shared";

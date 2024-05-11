@@ -10,4 +10,4 @@ export {
 export {
 	type VendorRequestDto,
 	type VendorResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

@@ -1,2 +1,2 @@
-export { chatCreateValidationSchema } from "@trackmates/shared";
-export { chatIdParameterValidationSchema } from "@trackmates/shared";
+export { chatCreateValidationSchema } from "@car/shared";
+export { chatIdParameterValidationSchema } from "@car/shared";

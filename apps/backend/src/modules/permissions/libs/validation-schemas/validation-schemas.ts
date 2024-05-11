@@ -1,1 +1,1 @@
-export { permissionIdParameter } from "@trackmates/shared";
+export { permissionIdParameter } from "@car/shared";

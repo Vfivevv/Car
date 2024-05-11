@@ -12,4 +12,4 @@ export {
 	type ServerErrorDetail,
 	type ServerErrorResponse,
 	type ValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

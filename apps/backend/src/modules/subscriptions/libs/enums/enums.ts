@@ -4,4 +4,4 @@ export {
 	Currency,
 	SubscriptionApiPath,
 	SubscriptionPlan,
-} from "@trackmates/shared";
+} from "@car/shared";

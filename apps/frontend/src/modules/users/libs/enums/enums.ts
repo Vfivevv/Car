@@ -1,1 +1,1 @@
-export { UserSex, UsersApiPath } from "@trackmates/shared";
+export { UserSex, UsersApiPath } from "@car/shared";

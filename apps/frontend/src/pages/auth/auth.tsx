@@ -95,7 +95,7 @@ const Auth: React.FC = () => {
 				)}
 			>
 				<div className={styles["logo-wrapper"]}>
-					<Image alt="TrackMates logo" className={styles["logo"]} src={logo} />
+					<Image alt="car logo" className={styles["logo"]} src={logo} />
 				</div>
 				{handleScreenRender(pathname)}
 			</div>

@@ -1,1 +1,1 @@
-export { AuthError } from "@trackmates/shared";
+export { AuthError } from "@car/shared";

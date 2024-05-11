@@ -1,1 +1,1 @@
-export { SocketEvent, SocketNamespace } from "@trackmates/shared";
+export { SocketEvent, SocketNamespace } from "@car/shared";

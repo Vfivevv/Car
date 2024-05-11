@@ -1,4 +1,4 @@
 export {
 	authForgotPasswordValidationSchema,
 	authUpdatePasswordValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

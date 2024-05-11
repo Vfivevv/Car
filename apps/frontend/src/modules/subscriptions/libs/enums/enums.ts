@@ -1,2 +1,2 @@
 export { StripeError } from "./stripe-error.enum.js";
-export { SubscriptionApiPath, SubscriptionPlan } from "@trackmates/shared";
+export { SubscriptionApiPath, SubscriptionPlan } from "@car/shared";

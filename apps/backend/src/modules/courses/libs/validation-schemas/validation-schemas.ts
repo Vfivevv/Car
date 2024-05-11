@@ -3,4 +3,4 @@ export {
 	courseGetAllQueryValidationSchema,
 	courseIdParameterValidationSchema,
 	courseUpdateValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

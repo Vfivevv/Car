@@ -5,4 +5,4 @@ export {
 	type ChatMessageUpdateRequestDto,
 	type ReadChatMessagesRequestDto,
 	type ReadChatMessagesResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

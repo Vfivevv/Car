@@ -1,1 +1,1 @@
-export { courseUpdateValidationSchema } from "@trackmates/shared";
+export { courseUpdateValidationSchema } from "@car/shared";

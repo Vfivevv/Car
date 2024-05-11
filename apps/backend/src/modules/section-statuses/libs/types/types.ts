@@ -4,4 +4,4 @@ export {
 	type SectionStatusGetAllResponseDto,
 	type SectionStatusResponseDto,
 	type SectionStatusUpdateRequestDto,
-} from "@trackmates/shared";
+} from "@car/shared";

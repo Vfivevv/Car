@@ -4,4 +4,4 @@ export {
 	type ActivityDeleteRequestDto,
 	type ActivityPayloadMap,
 	type ActivityResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

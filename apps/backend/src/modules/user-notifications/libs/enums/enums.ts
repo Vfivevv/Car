@@ -1,4 +1,4 @@
 export {
 	NotificationFilter,
 	UserNotificationsApiPath,
-} from "@trackmates/shared";
+} from "@car/shared";

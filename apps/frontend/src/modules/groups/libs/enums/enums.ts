@@ -1,1 +1,1 @@
-export { GroupsApiPath } from "@trackmates/shared";
+export { GroupsApiPath } from "@car/shared";

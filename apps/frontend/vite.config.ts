@@ -19,7 +19,7 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 		},
 		manifest: {
 			description:
-				"TrackMates — keep an eye on your learning progress and track the progress of your friends as you navigate through courses together!",
+				"car — keep an eye on your learning progress and track the progress of your friends as you navigate through courses together!",
 			icons: [
 				{
 					sizes: "192x192",
@@ -42,7 +42,7 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 					type: "image/png",
 				},
 			],
-			name: "TrackMates",
+			name: "car",
 			screenshots: [
 				{
 					form_factor: "wide",
@@ -68,7 +68,7 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
 					type: "image/jpg",
 				},
 			],
-			short_name: "TrackMates",
+			short_name: "car",
 			theme_color: "#0b372f",
 		},
 		outDir: "build",

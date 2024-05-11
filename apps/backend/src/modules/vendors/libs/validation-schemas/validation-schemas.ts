@@ -1,4 +1,4 @@
 export {
 	addVendorValidationSchema,
 	vendorIdParameterValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";

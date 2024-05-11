@@ -51,10 +51,10 @@ const ColumnName = {
 } as const;
 
 const AdminCredentials = {
-	EMAIL: "uam_admin@trackmates.net",
+	EMAIL: "uam_admin@car.net",
 	FIRST_NAME: "UAM",
 	LAST_NAME: "Admin",
-	PASSWORD: "trackmates_uam_admin",
+	PASSWORD: "car_uam_admin",
 } as const;
 
 const AdminGroup = {

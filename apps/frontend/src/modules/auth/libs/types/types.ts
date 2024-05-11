@@ -3,4 +3,4 @@ export {
 	type AuthUpdatePasswordRequestDto,
 	type AuthUpdatePasswordResponseDto,
 	type UserAuthResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

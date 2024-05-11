@@ -1,1 +1,1 @@
-export { GroupError } from "@trackmates/shared";
+export { GroupError } from "@car/shared";

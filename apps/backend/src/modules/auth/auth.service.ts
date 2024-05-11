@@ -120,7 +120,7 @@ class AuthService {
 		return await this.mail.send({
 			email,
 			subject: "Reset your password",
-			text: `Hello! \n You can update your password for TrackMates using the following link: ${url.href}`,
+			text: `Hello! \n You can update your password for car using the following link: ${url.href}`,
 		});
 	}
 

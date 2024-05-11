@@ -1,1 +1,1 @@
-export { activityLikeChangeValidationSchema } from "@trackmates/shared";
+export { activityLikeChangeValidationSchema } from "@car/shared";

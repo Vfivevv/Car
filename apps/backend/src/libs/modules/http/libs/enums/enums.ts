@@ -4,4 +4,4 @@ export {
 	HTTPError,
 	HTTPHeader,
 	type HTTPOptions,
-} from "@trackmates/shared";
+} from "@car/shared";

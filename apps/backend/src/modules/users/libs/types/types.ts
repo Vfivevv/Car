@@ -7,4 +7,4 @@ export {
 	type UserSignInResponseDto,
 	type UserSignUpRequestDto,
 	type UserSignUpResponseDto,
-} from "@trackmates/shared";
+} from "@car/shared";

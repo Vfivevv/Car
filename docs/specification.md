@@ -1,4 +1,4 @@
-# BSWA 2023-2024 – [TrackMates](https://trackmates.net) – Specification
+# BSWA 2023-2024 – [car](https://car.net) – Specification
 
 ## 1. Introduction
 
@@ -25,7 +25,7 @@ The "Auth" page provides "Sign In" / "Sign Up" forms for unauthorized / unregist
 
 **Element:** This is a separate page / screen.
 
-**How to reach:** An unauthorized / unregistered user is redirected to the "Sign In" form of this page from the restricted pages (i.e., all other pages) or after following the base URL (https://trackmates.net). A registered and authorized user is redirected to this page after logging out.
+**How to reach:** An unauthorized / unregistered user is redirected to the "Sign In" form of this page from the restricted pages (i.e., all other pages) or after following the base URL (https://car.net). A registered and authorized user is redirected to this page after logging out.
 
 **Where to go:** The user is redirected to the "Overview" page after successful authorization / registration.
 

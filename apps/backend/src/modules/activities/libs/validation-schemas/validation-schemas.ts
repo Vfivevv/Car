@@ -3,4 +3,4 @@ export {
 	activityCreateFinishSectionValidationSchema,
 	activityDeleteFinishSectionValidationSchema,
 	activityGetAllQueryValidationSchema,
-} from "@trackmates/shared";
+} from "@car/shared";
