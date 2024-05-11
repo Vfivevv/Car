@@ -4,7 +4,7 @@ import { type UserSex } from "../enums/enums.js";
 type UserProfileRequestDto = {
 	firstName: string;
 	lastName: string;
-	nickname: null | string;
+	phoneNumber: null | string;
 	sex: ValueOf<typeof UserSex> | null;
 };
 
