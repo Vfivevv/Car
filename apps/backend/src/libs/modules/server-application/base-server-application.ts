@@ -80,7 +80,6 @@ class BaseServerApplication implements ServerApplication {
 			ignoreTrailingSlash: true,
 		});
 
-		this.app.register(fastifyCors);
 	}
 
 	private initErrorHandler(): void {
