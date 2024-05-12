@@ -11,12 +11,9 @@ const userRepository = new UserRepository(UserModel, UserDetailsModel);
 const userService = new UserService(encrypt, userRepository);
 const userController = new UserController(logger, userService);
 
-export { userController, userRepository, userService };
-export { UserSex } from "./libs/enums/enums.js";
-export { UserError } from "./libs/exceptions/exceptions.js";
+export { userController, userService };
 export {
 	type UserAuthResponseDto,
-	type UserDetailsResponseDto,
 	type UserProfileRequestDto,
 	type UserSignInRequestDto,
 	type UserSignInResponseDto,
@@ -24,12 +21,8 @@ export {
 	type UserSignUpResponseDto,
 } from "./libs/types/types.js";
 export {
-	userProfileValidationSchema,
 	userSignInValidationSchema,
 	userSignUpValidationSchema,
 } from "./libs/validation-schemas/validation-schemas.js";
 export { UserEntity } from "./user.entity.js";
-export { UserModel } from "./user.model.js";
-export { type UserRepository } from "./user.repository.js";
 export { type UserService } from "./user.service.js";
-export { UserDetailsModel } from "./user-details.model.js";

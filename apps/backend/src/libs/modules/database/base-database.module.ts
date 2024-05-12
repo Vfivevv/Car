@@ -25,8 +25,8 @@ class BaseDatabase implements Database {
 	private get initialConfig(): Knex.Config {
 		const sslConfig =
 			this.appConfig.ENV.APP.ENVIRONMENT === AppEnvironment.LOCAL
-				? { ssl: { rejectUnauthorized: false } }
-				: { ssl: { rejectUnauthorized: true } };
+				? {}
+				: { ssl: { rejectUnauthorized: false } };
 
 		return {
 			client: this.appConfig.ENV.DB.DIALECT,
@@ -42,6 +42,9 @@ class BaseDatabase implements Database {
 			pool: {
 				max: this.appConfig.ENV.DB.POOL_MAX,
 				min: this.appConfig.ENV.DB.POOL_MIN,
+			},
+			seeds: {
+				directory: "src/db/seeds",
 			},
 			...knexSnakeCaseMappers({ underscoreBetweenUppercaseLetters: true }),
 		};

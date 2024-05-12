@@ -50,38 +50,6 @@ class BaseConfig implements Config {
 					format: Number,
 				},
 			},
-			AWS: {
-				ACCESS_KEY: {
-					default: null,
-					doc: "AWS access key",
-					env: "AWS_ACCESS_KEY",
-					format: String,
-				},
-				REGION: {
-					default: null,
-					doc: "AWS region",
-					env: "AWS_REGION",
-					format: String,
-				},
-				S3_BUCKET: {
-					default: null,
-					doc: "AWS S3 bucket",
-					env: "S3_BUCKET",
-					format: String,
-				},
-				SECRET_KEY: {
-					default: null,
-					doc: "AWS secret key",
-					env: "AWS_SECRET_KEY",
-					format: String,
-				},
-				SES_SENDER: {
-					default: null,
-					doc: "AWS SES sender",
-					env: "SES_SENDER",
-					format: String,
-				},
-			},
 			DB: {
 				CONNECTION_STRING: {
 					default: null,
@@ -108,14 +76,6 @@ class BaseConfig implements Config {
 					format: Number,
 				},
 			},
-			EDX: {
-				URL: {
-					default: null,
-					doc: "edX API url",
-					env: "EDX_URL",
-					format: String,
-				},
-			},
 			JWT: {
 				ALGORITHM: {
 					default: null,
@@ -133,48 +93,6 @@ class BaseConfig implements Config {
 					default: null,
 					doc: "Secret key for token generation",
 					env: "SECRET_KEY",
-					format: String,
-				},
-			},
-			OPENAI: {
-				API_KEY: {
-					default: null,
-					doc: "OpenAI API key",
-					env: "OPENAI_API_KEY",
-					format: String,
-				},
-				MODEL: {
-					default: null,
-					doc: "OpenAI model",
-					env: "OPENAI_MODEL",
-					format: String,
-				},
-			},
-			STRIPE: {
-				SECRET_KEY: {
-					default: null,
-					doc: "Stripe secret key",
-					env: "STRIPE_SECRET_KEY",
-					format: String,
-				},
-			},
-			UDEMY: {
-				CLIENT_ID: {
-					default: null,
-					doc: "Udemy Affiliate ClientId",
-					env: "UDEMY_CLIENT_ID",
-					format: String,
-				},
-				CLIENT_SECRET: {
-					default: null,
-					doc: "Udemy Affiliate ClientSecret",
-					env: "UDEMY_CLIENT_SECRET",
-					format: String,
-				},
-				URL: {
-					default: null,
-					doc: "API url",
-					env: "UDEMY_URL",
 					format: String,
 				},
 			},

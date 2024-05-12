@@ -1,1 +1,1 @@
-export { HTTPError, ValidationError } from "@car/shared";
+export { ValidationError } from "@car/shared";

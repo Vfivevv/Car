@@ -6,23 +6,19 @@ import fastifyCors from "fastify-cors";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { MAX_FILE_SIZE_IN_MB } from "~/libs/constants/constants.js";
-import { ContentType, ServerErrorType } from "~/libs/enums/enums.js";
+import { ServerErrorType } from "~/libs/enums/enums.js";
 import { type ValidationError } from "~/libs/exceptions/exceptions.js";
-import { getSizeInBytes } from "~/libs/helpers/helpers.js";
 import { type Config } from "~/libs/modules/config/config.js";
 import { type Database } from "~/libs/modules/database/database.js";
 import { HTTPCode, HTTPError } from "~/libs/modules/http/http.js";
 import { type Logger } from "~/libs/modules/logger/logger.js";
-import { type SocketService } from "~/libs/modules/socket/socket.js";
 import { type Token, type TokenPayload } from "~/libs/modules/token/token.js";
-import { authorization, fileUpload } from "~/libs/plugins/plugins.js";
+import { authorization } from "~/libs/plugins/plugins.js";
 import {
 	type ServerCommonErrorResponse,
 	type ServerValidationErrorResponse,
 	type ValidationSchema,
 } from "~/libs/types/types.js";
-import { subscriptionService } from "~/modules/subscriptions/subscriptions.js";
 import { type UserService } from "~/modules/users/users.js";
 
 import { WHITE_ROUTES } from "./libs/constants/constants.js";
@@ -38,7 +34,6 @@ type Constructor = {
 	database: Database;
 	logger: Logger;
 	services: {
-		socketService: SocketService;
 		userService: UserService;
 	};
 	title: string;
@@ -57,7 +52,6 @@ class BaseServerApplication implements ServerApplication {
 	private logger: Logger;
 
 	private services: {
-		socketService: SocketService;
 		userService: UserService;
 	};
 
@@ -86,14 +80,11 @@ class BaseServerApplication implements ServerApplication {
 			ignoreTrailingSlash: true,
 		});
 
+		// eslint-disable-next-line @typescript-eslint/no-floating-promises
 		this.app.register(fastifyCors, {
-			origin: "*",
 			methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+			origin: "*",
 		});
-	}
-
-	private initCrons(): void {
-		subscriptionService.initCrone();
 	}
 
 	private initErrorHandler(): void {
@@ -149,10 +140,6 @@ class BaseServerApplication implements ServerApplication {
 			token: this.token,
 			whiteRoutes: WHITE_ROUTES,
 		});
-		await this.app.register(fileUpload, {
-			allowedExtensions: [ContentType.JPEG, ContentType.PNG],
-			fileSize: getSizeInBytes(MAX_FILE_SIZE_IN_MB),
-		});
 	}
 
 	private async initServe(): Promise<void> {
@@ -169,11 +156,6 @@ class BaseServerApplication implements ServerApplication {
 		this.app.setNotFoundHandler(async (_request, response) => {
 			await response.sendFile("index.html", staticPath);
 		});
-	}
-
-	private initSocket(): void {
-		const { socketService } = this.services;
-		socketService.initialize(this.app.server);
 	}
 
 	private initValidationCompiler(): void {
@@ -223,10 +205,6 @@ class BaseServerApplication implements ServerApplication {
 		await this.initPlugins();
 
 		this.initRoutes();
-
-		this.initSocket();
-
-		this.initCrons();
 
 		this.database.connect();
 

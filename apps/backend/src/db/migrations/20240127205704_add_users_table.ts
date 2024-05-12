@@ -1,6 +1,7 @@
 import { type Knex } from "knex";
 
 const TABLE_NAME = "users";
+const EMAIL_MAXIMUM_LENGTH = 71;
 
 const ColumnName = {
 	CREATED_AT: "created_at",
@@ -11,10 +12,10 @@ const ColumnName = {
 	UPDATED_AT: "updated_at",
 } as const;
 
-function up(knex: Knex): Promise<void> {
-	return knex.schema.createTable(TABLE_NAME, (table) => {
+async function up(knex: Knex): Promise<void> {
+	await knex.schema.createTable(TABLE_NAME, (table) => {
 		table.increments(ColumnName.ID).primary();
-		table.string(ColumnName.EMAIL).unique().notNullable();
+		table.string(ColumnName.EMAIL, EMAIL_MAXIMUM_LENGTH).unique().notNullable();
 		table.text(ColumnName.PASSWORD_HASH).notNullable();
 		table.text(ColumnName.PASSWORD_SALT).notNullable();
 		table
@@ -28,8 +29,8 @@ function up(knex: Knex): Promise<void> {
 	});
 }
 
-function down(knex: Knex): Promise<void> {
-	return knex.schema.dropTableIfExists(TABLE_NAME);
+async function down(knex: Knex): Promise<void> {
+	await knex.schema.dropTableIfExists(TABLE_NAME);
 }
 
 export { down, up };

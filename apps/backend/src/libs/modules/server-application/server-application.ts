@@ -1,25 +1,11 @@
 import { config } from "~/libs/modules/config/config.js";
 import { database } from "~/libs/modules/database/database.js";
 import { logger } from "~/libs/modules/logger/logger.js";
-import { socketService } from "~/libs/modules/socket/socket.js";
 import { token } from "~/libs/modules/token/token.js";
-import { activityController } from "~/modules/activities/activities.js";
 import { authController } from "~/modules/auth/auth.js";
-import { chatMessageController } from "~/modules/chat-messages/chat-messages.js";
-import { chatController } from "~/modules/chats/chats.js";
-import { commentController } from "~/modules/comments/comments.js";
-import { courseSectionController } from "~/modules/course-sections/course-sections.js";
-import { courseController } from "~/modules/courses/courses.js";
-import { fileController } from "~/modules/files/files.js";
-import { friendController } from "~/modules/friends/friends.js";
-import { groupController } from "~/modules/groups/groups.js";
-import { permissionController } from "~/modules/permissions/permissions.js";
-import { sectionStatusController } from "~/modules/section-statuses/section-statuses.js";
-import { subscriptionController } from "~/modules/subscriptions/subscriptions.js";
-import { userCourseController } from "~/modules/user-courses/user-courses.js";
-import { userNotificationController } from "~/modules/user-notifications/user-notifications.js";
+import { carController } from "~/modules/cars/cars.js";
+import { formController } from "~/modules/form/forms.js";
 import { userController, userService } from "~/modules/users/users.js";
-import { vendorController } from "~/modules/vendors/vendors.js";
 
 import { BaseServerApplication } from "./base-server-application.js";
 import { BaseServerApplicationApi } from "./base-server-application-api.js";
@@ -27,31 +13,18 @@ import { BaseServerApplicationApi } from "./base-server-application-api.js";
 const apiV1 = new BaseServerApplicationApi(
 	"v1",
 	config,
-	...activityController.routes,
 	...authController.routes,
-	...courseController.routes,
-	...chatController.routes,
-	...chatMessageController.routes,
-	...vendorController.routes,
-	...userCourseController.routes,
-	...fileController.routes,
-	...friendController.routes,
-	...groupController.routes,
-	...permissionController.routes,
 	...userController.routes,
-	...userNotificationController.routes,
-	...courseSectionController.routes,
-	...sectionStatusController.routes,
-	...commentController.routes,
-	...subscriptionController.routes,
+	...carController.routes,
+	...formController.routes,
 );
 const serverApplication = new BaseServerApplication({
 	apis: [apiV1],
 	config,
 	database,
 	logger,
-	services: { socketService, userService },
-	title: "car",
+	services: { userService },
+	title: "Car",
 	token,
 });
 

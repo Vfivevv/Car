@@ -1,12 +1,7 @@
 import { ExceptionMessage } from "~/libs/enums/enums.js";
-import { convertPageToZeroIndexed } from "~/libs/helpers/helpers.js";
 import { type Encrypt } from "~/libs/modules/encrypt/encrypt.js";
 import { HTTPCode } from "~/libs/modules/http/http.js";
-import {
-	type PaginationRequestDto,
-	type PaginationResponseDto,
-	type Service,
-} from "~/libs/types/types.js";
+import { type Service } from "~/libs/types/types.js";
 import { UserEntity } from "~/modules/users/user.entity.js";
 import { type UserRepository } from "~/modules/users/user.repository.js";
 
@@ -24,17 +19,6 @@ class UserService implements Service {
 	public constructor(encrypt: Encrypt, userRepository: UserRepository) {
 		this.encrypt = encrypt;
 		this.userRepository = userRepository;
-	}
-
-	public async addAvatar(id: number, fileId: number): Promise<void> {
-		await this.userRepository.addAvatar(id, fileId);
-	}
-
-	public async addSubscription(
-		id: number,
-		subscriptionId: number,
-	): Promise<void> {
-		await this.userRepository.addSubscription(id, subscriptionId);
 	}
 
 	public async create(
@@ -68,25 +52,14 @@ class UserService implements Service {
 		return await this.userRepository.delete(userId);
 	}
 
-	public find(): Promise<UserEntity | null> {
+	public find(): Promise<UserAuthResponseDto | null> {
 		return Promise.resolve(null);
 	}
 
-	public async findAll({
-		count,
-		page,
-	}: PaginationRequestDto): Promise<
-		PaginationResponseDto<UserAuthResponseDto>
-	> {
-		const { items: users, total } = await this.userRepository.findAll({
-			count,
-			page: convertPageToZeroIndexed(page),
-		});
+	public async findAll(): Promise<UserAuthResponseDto[]> {
+		const users = await this.userRepository.findAll();
 
-		return {
-			items: users.map((user) => user.toObject()),
-			total,
-		};
+		return users.map((user) => user.toObject());
 	}
 
 	public async findById(id: number): Promise<UserAuthResponseDto | null> {
@@ -107,15 +80,15 @@ class UserService implements Service {
 	}
 
 	public async getByNickname(nickname: string): Promise<UserEntity | null> {
-		return await this.userRepository.getByNickname(nickname);
+		return await this.userRepository.getByPhoneNumber(nickname);
 	}
 
 	public async update(
 		userId: number,
 		userProfile: UserProfileRequestDto,
 	): Promise<UserAuthResponseDto | null> {
-		const { firstName, lastName, nickname, sex } = userProfile;
-		const user = await this.userRepository.getByNickname(nickname);
+		const { firstName, lastName, phoneNumber, sex } = userProfile;
+		const user = await this.userRepository.find(userId);
 		const hasUser = Boolean(user);
 		const isSameUser = user?.toObject().id === userId;
 
@@ -129,7 +102,7 @@ class UserService implements Service {
 		const updatedUser = await this.userRepository.update(userId, {
 			firstName,
 			lastName,
-			nickname,
+			phoneNumber,
 			sex,
 		});
 

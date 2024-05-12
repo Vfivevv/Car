@@ -1,7 +1,1 @@
-export {
-	ContentType,
-	HTTPCode,
-	HTTPError,
-	HTTPHeader,
-	type HTTPOptions,
-} from "@car/shared";
+export { HTTPCode, HTTPError, HTTPHeader } from "@car/shared";

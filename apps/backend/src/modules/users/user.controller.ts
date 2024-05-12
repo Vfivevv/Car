@@ -1,8 +1,4 @@
-import { APIPath, PermissionKey, PermissionMode } from "~/libs/enums/enums.js";
-import {
-	checkByParameterIfNotTheSameUser,
-	checkUserPermissions,
-} from "~/libs/hooks/hooks.js";
+import { APIPath } from "~/libs/enums/enums.js";
 import {
 	type APIHandlerOptions,
 	type APIHandlerResponse,
@@ -10,19 +6,12 @@ import {
 } from "~/libs/modules/controller/controller.js";
 import { HTTPCode } from "~/libs/modules/http/http.js";
 import { type Logger } from "~/libs/modules/logger/logger.js";
-import { type PaginationRequestDto } from "~/libs/types/types.js";
 import { type UserService } from "~/modules/users/user.service.js";
-import {
-	type UserProfileRequestDto,
-	userProfileValidationSchema,
-} from "~/modules/users/users.js";
+import { type UserProfileRequestDto } from "~/modules/users/users.js";
 
 import { UsersApiPath } from "./libs/enums/enums.js";
 import { type UserGetByIdRequestDto } from "./libs/types/types.js";
-import {
-	userGetAllQueryValidationSchema,
-	userIdParametersValidationSchema,
-} from "./libs/validation-schemas/validation-schemas.js";
+import { userIdParametersValidationSchema } from "./libs/validation-schemas/validation-schemas.js";
 
 class UserController extends BaseController {
 	private userService: UserService;
@@ -42,13 +31,6 @@ class UserController extends BaseController {
 			},
 			method: "DELETE",
 			path: UsersApiPath.$ID,
-			preHandlers: [
-				checkUserPermissions(
-					[PermissionKey.MANAGE_USERS],
-					PermissionMode.ALL_OF,
-				),
-				checkByParameterIfNotTheSameUser<{ id: string }>("id"),
-			],
 			validation: {
 				params: userIdParametersValidationSchema,
 			},
@@ -64,24 +46,14 @@ class UserController extends BaseController {
 				),
 			method: "PATCH",
 			path: UsersApiPath.$ID,
-			validation: {
-				body: userProfileValidationSchema,
-			},
 		});
 
 		this.addRoute({
-			handler: (options) => {
-				return this.findAll(
-					options as APIHandlerOptions<{
-						query: PaginationRequestDto;
-					}>,
-				);
+			handler: () => {
+				return this.findAll();
 			},
 			method: "GET",
 			path: UsersApiPath.ROOT,
-			validation: {
-				query: userGetAllQueryValidationSchema,
-			},
 		});
 
 		this.addRoute({
@@ -100,23 +72,6 @@ class UserController extends BaseController {
 		});
 	}
 
-	/**
-	 * @swagger
-	 * /users:
-	 *    delete:
-	 *      tags:
-	 *        - Users
-	 *      security:
-	 *        - bearerAuth: []
-	 *      description: Delete user
-	 *      responses:
-	 *        200:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: boolean
-	 */
 	private async delete({
 		params: { id },
 	}: APIHandlerOptions<{
@@ -130,82 +85,13 @@ class UserController extends BaseController {
 		};
 	}
 
-	/**
-	 * @swagger
-	 * /users:
-	 *    get:
-	 *      tags:
-	 *        - Users
-	 *      security:
-	 *        - bearerAuth: []
-	 *      description: Find all users
-	 *      parameters:
-	 *        - name: page
-	 *          in: query
-	 *          description: Page number
-	 *          schema:
-	 *            type: number
-	 *            minimum: 1
-
-	 *        - name: count
-	 *          in: query
-	 *          description: Item count on page
-	 *          schema:
-	 *            type: number
-	 *            minimum: 1
-	 *            required: true
-	 *      responses:
-	 *        200:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: object
-	 *                properties:
-	 *                  items:
-	 *                    type: array
-	 *                    items:
-	 *                      type: object
-	 *                      $ref: "#/components/schemas/User"
-	 */
-	private async findAll({
-		query: { count, page },
-	}: APIHandlerOptions<{
-		query: PaginationRequestDto;
-	}>): Promise<APIHandlerResponse> {
+	private async findAll(): Promise<APIHandlerResponse> {
 		return {
-			payload: await this.userService.findAll({
-				count,
-				page,
-			}),
+			payload: await this.userService.findAll(),
 			status: HTTPCode.OK,
 		};
 	}
 
-	/**
-	 * @swagger
-	 * /users/{id}:
-	 *   get:
-	 *     tags:
-	 *       - Users
-	 *     security:
-	 *       - bearerAuth: []
-	 *     description: Returns found user
-	 *     parameters:
-	 *       - in: path
-	 *         name: id
-	 *         description: ID of the user
-	 *         required: true
-	 *         schema:
-	 *           type: number
-	 *     responses:
-	 *       200:
-	 *         description: Successful operation
-	 *         content:
-	 *           application/json:
-	 *             schema:
-	 *               $ref: '#/components/schemas/User'
-	 */
 	private async findById(
 		options: APIHandlerOptions<{
 			params: {
@@ -218,48 +104,6 @@ class UserController extends BaseController {
 			status: HTTPCode.OK,
 		};
 	}
-
-	/**
-	 * @swagger
-	 * /users/{id}:
-	 *    patch:
-	 *      tags:
-	 *        - Users
-	 *      security:
-	 *        - bearerAuth: []
-	 *      description: Updates a user's details
-	 *      parameters:
-	 *        - in: path
-	 *          name: id
-	 *          description: ID of the user to update
-	 *          required: true
-	 *          schema:
-	 *            type: string
-	 *      requestBody:
-	 *        description: Updated user object
-	 *        required: true
-	 *        content:
-	 *          application/json:
-	 *            schema:
-	 *              type: object
-	 *              properties:
-	 *                firstName:
-	 *                  type: string
-	 *                lastName:
-	 *                  type: string
-	 *                nickname:
-	 *                  type: string
-	 *                sex:
-	 *                  type: string
-	 *                  enum: [male, female, prefer-not-to-say]
-	 *      responses:
-	 *        '200':
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                $ref: '#/components/schemas/User'
-	 */
 
 	private async updateUser(
 		options: APIHandlerOptions<{

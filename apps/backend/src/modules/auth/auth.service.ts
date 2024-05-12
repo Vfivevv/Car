@@ -1,6 +1,5 @@
 import { ExceptionMessage, HTTPCode } from "~/libs/enums/enums.js";
 import { type Encrypt } from "~/libs/modules/encrypt/encrypt.js";
-import { type Mail } from "~/libs/modules/mail/mail.js";
 import {
 	type Token,
 	type TokenPayload,
@@ -21,7 +20,6 @@ import { type AuthUpdatePasswordResponseDto } from "./libs/types/types.js";
 
 type Constructor = {
 	encrypt: Encrypt;
-	mail: Mail;
 	token: Token<TokenPayload>;
 	updatePasswordLink: string;
 	updatePasswordToken: Token<UpdatePasswordTokenPayload>;
@@ -30,7 +28,6 @@ type Constructor = {
 
 class AuthService {
 	private encrypt: Encrypt;
-	private mail: Mail;
 	private token: Token<TokenPayload>;
 	private updatePasswordLink: string;
 	private updatePasswordToken: Token<UpdatePasswordTokenPayload>;
@@ -38,14 +35,12 @@ class AuthService {
 
 	public constructor({
 		encrypt,
-		mail,
 		token,
 		updatePasswordLink,
 		updatePasswordToken,
 		userService,
 	}: Constructor) {
 		this.encrypt = encrypt;
-		this.mail = mail;
 		this.token = token;
 		this.updatePasswordLink = updatePasswordLink;
 		this.updatePasswordToken = updatePasswordToken;
@@ -100,28 +95,6 @@ class AuthService {
 		}
 
 		return user;
-	}
-
-	public async forgotPassword(email: string): Promise<boolean> {
-		const user = await this.userService.getByEmail(email);
-
-		if (!user) {
-			throw new AuthError({
-				message: ExceptionMessage.USER_NOT_FOUND,
-				status: HTTPCode.BAD_REQUEST,
-			});
-		}
-
-		const { id: userId, updatedAt } = user.toObject();
-		const token = await this.updatePasswordToken.create({ updatedAt, userId });
-		const url = new URL(this.updatePasswordLink);
-		url.searchParams.append("token", token);
-
-		return await this.mail.send({
-			email,
-			subject: "Reset your password",
-			text: `Hello! \n You can update your password for car using the following link: ${url.href}`,
-		});
 	}
 
 	public async signIn(

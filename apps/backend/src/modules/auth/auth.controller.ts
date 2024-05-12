@@ -16,51 +16,9 @@ import {
 
 import { type AuthService } from "./auth.service.js";
 import { AuthApiPath } from "./libs/enums/enums.js";
-import {
-	type AuthForgotPasswordRequestDto,
-	type AuthUpdatePasswordRequestDto,
-} from "./libs/types/types.js";
-import {
-	authForgotPasswordValidationSchema,
-	authUpdatePasswordValidationSchema,
-} from "./libs/validation-schemas/validation-schemas.js";
+import { type AuthUpdatePasswordRequestDto } from "./libs/types/types.js";
+import { authUpdatePasswordValidationSchema } from "./libs/validation-schemas/validation-schemas.js";
 
-/***
- * @swagger
- * components:
- *    schemas:
- *      User:
- *        type: object
- *        properties:
- *          avatarUrl:
- *            type: string
- *            nullable: true
- *          createdAt:
- *            type: string
- *          email:
- *            type: string
- *            format: email
- *          firstName:
- *            type: string
- *          groups:
- *            type: array
- *            items:
- *              type: object
- *              $ref: "#/components/schemas/Group"
- *          id:
- *            type: number
- *            minimum: 1
- *          lastName:
- *            type: string
- *          nickname:
- *            type: string
- *            nullable: true
- *          sex:
- *            type: string
- *            enum: [male, female, prefer-not-to-say]
- *          updatedAt:
- *            type: string
- */
 class AuthController extends BaseController {
 	private authService: AuthService;
 
@@ -80,21 +38,6 @@ class AuthController extends BaseController {
 			path: AuthApiPath.SIGN_UP,
 			validation: {
 				body: userSignUpValidationSchema,
-			},
-		});
-
-		this.addRoute({
-			handler: (options) => {
-				return this.forgotPassword(
-					options as APIHandlerOptions<{
-						body: AuthForgotPasswordRequestDto;
-					}>,
-				);
-			},
-			method: "POST",
-			path: AuthApiPath.FORGOT_PASSWORD,
-			validation: {
-				body: authForgotPasswordValidationSchema,
 			},
 		});
 
@@ -137,63 +80,6 @@ class AuthController extends BaseController {
 		});
 	}
 
-	/**
-	 * @swagger
-	 * /auth/forgot-password:
-	 *    post:
-	 *      tags:
-	 *        - Authentication
-	 *      description: Sends link for update password on specified email
-	 *      requestBody:
-	 *        required: true
-	 *        content:
-	 *          application/json:
-	 *            schema:
-	 *              type: object
-	 *              properties:
-	 *                email:
-	 *                  type: string
-	 *                  format: email
-	 *      responses:
-	 *        201:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: boolean
-	 */
-	private async forgotPassword({
-		body: { email },
-	}: APIHandlerOptions<{
-		body: AuthForgotPasswordRequestDto;
-	}>): Promise<APIHandlerResponse> {
-		return {
-			payload: await this.authService.forgotPassword(email),
-			status: HTTPCode.CREATED,
-		};
-	}
-
-	/**
-	 * @swagger
-	 * /auth/authenticated-user:
-	 *    get:
-	 *      tags:
-	 *        - Authentication
-	 *      security:
-	 *        - bearerAuth: []
-	 *      description: Return current user by token
-	 *      responses:
-	 *        200:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: object
-	 *                properties:
-	 *                  message:
-	 *                    type: object
-	 *                    $ref: "#/components/schemas/User"
-	 */
 	private getAuthenticatedUser(options: APIHandlerOptions): APIHandlerResponse {
 		const { user } = options;
 
@@ -203,38 +89,6 @@ class AuthController extends BaseController {
 		};
 	}
 
-	/**
-	 * @swagger
-	 * /auth/sign-in:
-	 *    post:
-	 *      tags:
-	 *        - Authentication
-	 *      description: Sign in user into the system
-	 *      requestBody:
-	 *        description: User auth data
-	 *        required: true
-	 *        content:
-	 *          application/json:
-	 *            schema:
-	 *              type: object
-	 *              properties:
-	 *                email:
-	 *                  type: string
-	 *                  format: email
-	 *                password:
-	 *                  type: string
-	 *      responses:
-	 *        200:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: object
-	 *                properties:
-	 *                  message:
-	 *                    type: object
-	 *                    $ref: "#/components/schemas/User"
-	 */
 	private async signIn(
 		options: APIHandlerOptions<{
 			body: UserSignInRequestDto;
@@ -246,42 +100,6 @@ class AuthController extends BaseController {
 		};
 	}
 
-	/**
-	 * @swagger
-	 * /auth/sign-up:
-	 *    post:
-	 *      tags:
-	 *        - Authentication
-	 *      description: Sign up user into the system
-	 *      requestBody:
-	 *        description: User auth data
-	 *        required: true
-	 *        content:
-	 *          application/json:
-	 *            schema:
-	 *              type: object
-	 *              properties:
-	 *                email:
-	 *                  type: string
-	 *                  format: email
-	 *                firstName:
-	 *                  type: string
-	 *                lastName:
-	 *                  type: string
-	 *                password:
-	 *                  type: string
-	 *      responses:
-	 *        201:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: object
-	 *                properties:
-	 *                  message:
-	 *                    type: object
-	 *                    $ref: "#/components/schemas/User"
-	 */
 	private async signUp(
 		options: APIHandlerOptions<{
 			body: UserSignUpRequestDto;
@@ -293,38 +111,6 @@ class AuthController extends BaseController {
 		};
 	}
 
-	/**
-	 * @swagger
-	 * /auth/update-password:
-	 *    patch:
-	 *      tags:
-	 *        - Authentication
-	 *      description: Verifies token and updates password
-	 *      requestBody:
-	 *        required: true
-	 *        content:
-	 *          application/json:
-	 *            schema:
-	 *              type: object
-	 *              properties:
-	 *                token:
-	 *                  type: string
-	 *                password:
-	 *                  type: string
-	 *      responses:
-	 *        200:
-	 *          description: Successful operation
-	 *          content:
-	 *            application/json:
-	 *              schema:
-	 *                type: object
-	 *                properties:
-	 *                  token:
-	 *                    type: string
-	 *                  user:
-	 *                    type: object
-	 *                    $ref: "#/components/schemas/User"
-	 */
 	private async updatePassword({
 		body: { password, token },
 	}: APIHandlerOptions<{

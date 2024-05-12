@@ -1,1 +1,1 @@
-export { type HTTP, type HTTPMethod } from "@car/shared";
+export { type HTTPMethod } from "@car/shared";

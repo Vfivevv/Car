@@ -1,4 +1,1 @@
-export {
-	authForgotPasswordValidationSchema,
-	authUpdatePasswordValidationSchema,
-} from "@car/shared";
+export { authUpdatePasswordValidationSchema } from "@car/shared";
