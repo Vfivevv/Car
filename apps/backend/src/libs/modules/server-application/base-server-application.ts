@@ -79,11 +79,16 @@ class BaseServerApplication implements ServerApplication {
 		this.app = Fastify({
 			ignoreTrailingSlash: true,
 		});
-
 	}
 
 	private initErrorHandler(): void {
-		this.app.register(fastifyCors);
+		this.app.register(fastifyCors, {
+			methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+			credentials: true, 
+			allowedHeaders: ["Content-Type", "Authorization"],
+			origin: "*",
+		});
+
 		this.app.setErrorHandler(
 			(error: FastifyError | ValidationError, _request, reply) => {
 				if ("issues" in error) {
