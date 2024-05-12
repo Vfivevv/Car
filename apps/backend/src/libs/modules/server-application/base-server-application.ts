@@ -80,14 +80,11 @@ class BaseServerApplication implements ServerApplication {
 			ignoreTrailingSlash: true,
 		});
 
-		// eslint-disable-next-line @typescript-eslint/no-floating-promises
-		this.app.register(fastifyCors, {
-			methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-			origin: "*",
-		});
+		this.app.register(fastifyCors);
 	}
 
 	private initErrorHandler(): void {
+		this.app.register(fastifyCors);
 		this.app.setErrorHandler(
 			(error: FastifyError | ValidationError, _request, reply) => {
 				if ("issues" in error) {
